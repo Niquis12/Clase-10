@@ -1,0 +1,160 @@
+/* ckase 10: grid css */
+
+/* estilos de etiqueta */
+
+
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* selectores de clase */
+
+.container{
+    /* dimensiones */
+
+    max-width: 980px;
+    padding: 0;
+    margin: 0 auto;
+    /* predisponemos al padre a las grillas*/
+    display: grid;
+    /* cantidad de columnas y dimensiones */
+    grid-template-columns: repeat(6, 1fr);
+    /* dividimos en filas */
+    grid-template-rows: 10vh 75vh 10vh;
+    /* dimensiones de las separaciones */
+    gap: 10px;/* v_h v_v */
+}
+
+.main{
+    /* predisponesmos a main a grillas */
+    display: grid;
+    margin: 0 auto;
+    /* division en columnas */
+    grid-template-columns: repeat(6,1fr);
+    /* cuantas columnas ocupa el padre */
+    grid-column-start: 1; /* el numero que corresponde al gap no a la columna */
+    grid-column-end: -1; /* hace refencia al ultimo */
+    /* valord del gap */
+    gap: 10px;
+
+}
+
+.aside{
+    /* cuantas columnas del padre va a ocupar */
+    grid-column-start: 1;
+    grid-column-end: 3; /* el numero corresponde al gap que limita la columna */
+    background-color: aqua;
+    padding: 10px;
+}
+
+/* estilos del contenidos del aside */
+.aside h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.aside ul li a{
+    text-decoration: none;
+    color: #0055aa;
+}
+
+.aside ul li a:hover{
+    text-decoration: underline;
+}
+
+.section{
+    /* cuantas columnas ocupa del padre */
+    grid-column-start: 3;
+    grid-column-end: 7 ;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+/* header/footer */
+.nav, .nav ul {
+    /* predisponemos a los padres a grillas */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr;
+    /* cuantas columnas ocupamos */
+    grid-column-start: 1;
+    grid-column-end: 7;
+    /* valor de gap */
+    gap: 10px;
+    /* geometría */
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+.nav ul li a{
+    color: beige;
+    text-decoration: none;
+}
+
+.nav ul li{
+    list-style: none;
+    /* predisponemos a li a comprotamiento flex */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* alinemientos */
+    justify-content: center;
+    align-items: center;
+}
+
+/* pseudoselector :nth-child() first-child*/
+.footer ul li:nth-child(1){
+    grid-column: 2;
+}
+
+.header ul li:nth-child(1){
+    grid-column: 4;
+}
+
+/* MENU DESPLEGABLE */
+.header ul li .dropdown-content{
+    /* personalizamos la posicion de drop */
+    position: absolute;
+    /* ubicamos la caja drop */
+    top: 10vh;
+    right: 0;
+
+    /* ubicamos el contenido de drop en columna */
+    display: flex;
+    flex-direction: column;
+
+    /* predismponemos a drop a una transicion */
+    transition: all 0.5s;
+
+    opacity: 0;
+
+    
+}
+
+.header ul{
+    position: relative;
+}
+
+.header ul li:hover .dropdown-content{
+    opacity: 1;
+}
+
+/* estilos al menu desplegable */
+.header ul li .dropdown-content li{
+    padding: 10px 10px;
+    margin: 0;
+    /* predisponemos a trasicion */
+    transition: all 0.3s;
+    
+   
+
+}
+
+.header ul li .dropdown-content li:hover{
+   background-color: #575757;
+   
+}
+
